@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Bootstrap 4.3.1 CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ775iSRrOgS6rI1MGARt+rW4U4biVXK8srB" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'food/style.css' %}">
+    <title>FoodAPP</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <div class="container-fluid">
+            <!-- FoodApp name on the left -->
+            <a href="#" class="navbar-brand">FoodApp</a>
+
+            <!-- Button for mobile menu toggle (for small screens) -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation links aligned to the right -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto"> <!-- ml-auto pushes nav items to the right in Bootstrap 4 -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Add Item</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Delete Item</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">View Item</a>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Messages -->
+    <div class="container mt-3">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">   
+                    {{ message }}
+                </div>  
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <!-- Main Content Block -->
+    <div class="container">
+        {% block body %}
+        {% endblock %}
+    </div>
+
+    <!-- Bootstrap 4.3.1 JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGaZcMtQ2btie35JMeI5M8PKZm" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIywrUafDRj9cGm/t6nLJp65IKVf3moJ3KNjR8P" crossorigin="anonymous"></script>
+</body>
+</html>
