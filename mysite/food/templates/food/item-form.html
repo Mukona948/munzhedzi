@@ -1,54 +1,18 @@
 {% extends 'food/base.html' %}
 
 {% block body %}
-<div class="container mt-5">
-    <h2 class="text-center mb-4">Create Your Account</h2>
-    
-    <form method="POST" class="bg-light p-4 border rounded shadow-sm">
-        {% csrf_token %}
-        
-        <div class="form-group">
-            {{ form|crispy }}  <!-- You can use Django Crispy Forms for better layout -->
+<div class="container">
+    <div class="row justify-content-center"> <!-- Center the form horizontally -->
+        <div class="col-md-6"> <!-- Control the width of the form -->
+            <div class="card p-4 mt-5"> <!-- Add padding and spacing -->
+                <h2 class="text-center">Add Item</h2> <!-- Centered heading -->
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }} <!-- Render the form fields -->
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Save</button> <!-- Styled button -->
+                </form>
+            </div>
         </div>
-        
-        <div class="form-group text-center">
-            <button type="submit" class="btn btn-primary btn-lg">Save</button>
-        </div>
-
-        <p class="text-center mt-3">
-            Already have an account? <a href="{% url 'login' %}">Log in here</a>.
-        </p>
-    </form>
+    </div>
 </div>
-
-<style>
-    body {
-        background-color: #f8f9fa; /* Light background color */
-    }
-
-    .container {
-        max-width: 600px; /* Limit width of form */
-        margin: auto; /* Center the container */
-    }
-
-    h2 {
-        color: #333; /* Darker color for the heading */
-    }
-
-    .form-group {
-        margin-bottom: 15px; /* Space between form elements */
-    }
-
-    button[type="submit"] {
-        width: 100%; /* Full width button */
-    }
-
-    a {
-        color: #007bff; /* Bootstrap primary color */
-    }
-    
-    a:hover {
-        text-decoration: underline; /* Underline on hover */
-    }
-</style>
 {% endblock %}
