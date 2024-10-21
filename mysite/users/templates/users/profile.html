@@ -1,42 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+{% extends 'food/base.html' %}
 
-        .profile-container {
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
-            padding-left: 20px; /* Optional spacing from the edge */
-        }
+{% block body %}
+<div class="profile-container">
+    <img src="{{ user.profile.image.url }}" alt="Profile Image">
+    <h1>{{ user.username }}</h1>
+</div>
 
-        .profile-container img {
-            max-width: 150px;
-            max-height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 20px; /* Space between the image and the text */
-        }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-        h1 {
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
+    .profile-container {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        padding-left: 20px; /* Optional spacing from the edge */
+    }
 
-    <div class="profile-container">
-        <img src="{{ user.profile.image.url }}" alt="Profile Image">
-        <h1>{{ user.username }}</h1>
-    </div>
+    .profile-container img {
+        max-width: 150px;
+        max-height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 20px; /* Space between the image and the text */
+    }
 
-</body>
-</html>
+    h1 {
+        margin: 0;
+    }
+</style>
+{% endblock %}
