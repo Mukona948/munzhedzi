@@ -1,81 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f4f7;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .login-container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-        }
-        .login-container h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #333;
-        }
-        .login-container form {
-            display: flex;
-            flex-direction: column;
-        }
-        .login-container input {
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .login-container button {
-            padding: 15px;
-            border: none;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .login-container button:hover {
-            background-color: #45a049;
-        }
-        .login-container p {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .login-container p a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-        .login-container p a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
+{% extends 'food/base.html' %}
+{% block body %}
 
-    <div class="login-container">
-        <h2>Login</h2>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form }}
-            <button type="submit">Login</button>
-        </form>
-        <p>Don't have an account? <a href="#">Sign up here</a></p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="login-container">
+                <h2 class="text-center">Login</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+                <p class="text-center mt-3">Don't have an account? <a href="#">Sign up here</a></p>
+            </div>
+        </div>
     </div>
+</div>
 
-</body>
-</html>
+<style>
+    body {
+        background-color: #f0f4f7;
+    }
+    .login-container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+    }
+    .login-container h2 {
+        margin-bottom: 30px;
+    }
+    .login-container button {
+        padding: 10px;
+        font-size: 16px;
+    }
+</style>
+
+{% endblock %}
