@@ -1,3 +1,9 @@
 body{
     background-color: lightyellow;
 }
+
+.card {
+    max-width: 100%;  /* Limit the image width to the column's width */
+    height: auto;     /* Maintain aspect ratio */
+    object-fit: cover; 
+}

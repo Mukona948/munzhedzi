@@ -54,7 +54,7 @@
     <nav class="navbar navbar-expand-sm">
         <div class="container-fluid">
             <!-- FoodApp name on the left -->
-            <a href="#" class="navbar-brand">FoodApp</a>
+            <a href="{% url 'food:index' %}" class="navbar-brand">FoodApp</a>
 
             <!-- Button for mobile menu toggle (for small screens) -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +65,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto"> <!-- ml-auto pushes nav items to the right in Bootstrap 4 -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Add Item</a>
+                        <a class="nav-link" href="{% url 'food:create_item' %}">Add Item</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Delete Item</a>
