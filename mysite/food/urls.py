@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import ItemList, ItemDetail 
 
 app_name = 'food'
 urlpatterns = [
@@ -14,4 +15,7 @@ urlpatterns = [
     path('update/<int:id>/', views.update_item, name='update_item'),
     # Delete item as user
     path('delete/<int:item_id>/', views.delete_item, name='delete_item'),
+    path('items/', ItemList.as_view(), name='item-list'),
+    path('items/<int:pk>/', ItemDetail.as_view(), name='item-detail'),
 ]
+
